@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
+<!-- 2016-07-28T15:07:06 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DocumentCorrection" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d5139d9c-d8ba-4d37-a868-e5589f09ad80">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Masterdb2"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="danOd" class="java.sql.Date"/>
+	<parameter name="danDo" class="java.sql.Date"/>
+	<parameter name="restoran" class="java.lang.String"/>
+	<parameter name="objekatId" class="java.lang.Integer"/>
+	<parameter name="napravio" class="java.lang.String"/>
+	<parameter name="tipIspravke" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[select 1]]>
+	</queryString>
+	<field name="1" class="java.lang.Long"/>
+	<group name="Group3">
+		<groupFooter>
+			<band height="44">
+				<subreport>
+					<reportElement x="1" y="0" width="800" height="44" uuid="7284e65a-7a3f-4630-923c-cc582a7013a3"/>
+					<subreportParameter name="danOd">
+						<subreportParameterExpression><![CDATA[$P{danOd}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="danDo">
+						<subreportParameterExpression><![CDATA[$P{danDo}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="restoran">
+						<subreportParameterExpression><![CDATA[$P{restoran}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="objekatId">
+						<subreportParameterExpression><![CDATA[$P{objekatId}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="napravio">
+						<subreportParameterExpression><![CDATA[$P{napravio}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="tipIspravke">
+						<subreportParameterExpression><![CDATA[3]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression><![CDATA["rs/petcom/backoffice/jasper/DocumentCorrectionSub.jasper"]]></subreportExpression>
+				</subreport>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="Group2">
+		<groupFooter>
+			<band height="44">
+				<subreport>
+					<reportElement x="1" y="0" width="800" height="44" uuid="d2e28dfe-2469-4817-af1e-b47a12d0a541"/>
+					<subreportParameter name="danOd">
+						<subreportParameterExpression><![CDATA[$P{danOd}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="danDo">
+						<subreportParameterExpression><![CDATA[$P{danDo}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="restoran">
+						<subreportParameterExpression><![CDATA[$P{restoran}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="objekatId">
+						<subreportParameterExpression><![CDATA[$P{objekatId}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="napravio">
+						<subreportParameterExpression><![CDATA[$P{napravio}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="tipIspravke">
+						<subreportParameterExpression><![CDATA[2]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression><![CDATA["rs/petcom/backoffice/jasper/DocumentCorrectionSub.jasper"]]></subreportExpression>
+				</subreport>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="Group1">
+		<groupFooter>
+			<band height="44">
+				<subreport>
+					<reportElement x="1" y="0" width="800" height="44" uuid="b1de7d1f-b5fe-4c48-9a35-a7f1dc5b34e5"/>
+					<subreportParameter name="danOd">
+						<subreportParameterExpression><![CDATA[$P{danOd}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="danDo">
+						<subreportParameterExpression><![CDATA[$P{danDo}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="restoran">
+						<subreportParameterExpression><![CDATA[$P{restoran}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="objekatId">
+						<subreportParameterExpression><![CDATA[$P{objekatId}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="napravio">
+						<subreportParameterExpression><![CDATA[$P{napravio}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="tipIspravke">
+						<subreportParameterExpression><![CDATA[1]]></subreportParameterExpression>
+					</subreportParameter>
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<subreportExpression><![CDATA["rs/petcom/backoffice/jasper/DocumentCorrectionSub.jasper"]]></subreportExpression>
+				</subreport>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<textField pattern="dd.MM.yyyy">
+				<reportElement x="55" y="55" width="55" height="15" uuid="a85452e4-5be7-4919-aed6-794e8ac54312"/>
+				<textFieldExpression><![CDATA[$P{danOd}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd.MM.yyyy">
+				<reportElement x="137" y="55" width="55" height="15" uuid="e528ab3c-0efc-49d6-8259-973fb035ade2"/>
+				<textFieldExpression><![CDATA[$P{danDo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="0" width="801" height="21" uuid="f984df8b-2b48-4864-a340-98a97e05ab2f"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PREGLED KOREKCIJA FISKALNIH RAČUNA]]></text>
+			</staticText>
+			<textField pattern="dd.MM.yyyy">
+				<reportElement x="0" y="55" width="55" height="15" uuid="f4340042-54e5-412b-a39d-8d1f4cd3a9c8">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textFieldExpression><![CDATA["Period od:"]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd.MM.yyyy">
+				<reportElement x="110" y="55" width="27" height="15" uuid="32b6dd55-7ac5-4036-bc06-a3ae48bf34e0"/>
+				<textFieldExpression><![CDATA[" do "]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd.MM.yyyy">
+				<reportElement x="0" y="21" width="801" height="34" uuid="e1ef6974-ff17-47ff-8a11-095569d11ac9">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement markup="styled"/>
+				<textFieldExpression><![CDATA["Restoran: <b>" + $P{restoran} + "</b>\n" +
+"Izveštaj napravio: <b>" + $P{napravio} + "</b>"]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<pageFooter>
+		<band height="10" splitType="Stretch">
+			<textField evaluationTime="Master">
+				<reportElement x="627" y="0" width="175" height="10" uuid="ec11596f-7cea-4529-ac32-b097b451306a"/>
+				<box>
+					<topPen lineWidth="0.4"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="7" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{page} + $V{MASTER_CURRENT_PAGE} + " " + $R{pageOf} + $V{MASTER_TOTAL_PAGES}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report" pattern="dd.MM.yyyy HH:mm:ss">
+				<reportElement x="0" y="0" width="179" height="10" uuid="27b04fbc-bcc8-439a-9d87-03c38331fb79"/>
+				<box>
+					<topPen lineWidth="0.4"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="7" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="179" y="0" width="448" height="10" uuid="b74fd467-c406-4b21-bb6d-377a164331d6"/>
+				<box>
+					<topPen lineWidth="0.4"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Powered by  Master Software Solution - www.petcom.rs]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

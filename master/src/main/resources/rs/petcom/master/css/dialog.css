@@ -1,0 +1,38 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+#dialogRootPane{
+	-fx-background-color: #21252e;	
+	-fx-border-width: 1px;
+	-fx-border-color: orange;
+}
+#dialogTitle{
+	-fx-background-color: transparent;	
+	-fx-text-fill: orange;
+	-fx-font-weight: bold;
+	-fx-font-size: 20px;
+	-fx-alignment: CENTER;
+}
+#dialogText{
+	-fx-background-color: transparent;
+	-fx-text-fill: white;
+	-fx-font-size: 16px;
+	-fx-font-family: monospace;
+}
+
+.paymentRadioButton{
+	-fx-text-fill: white;
+	-fx-font-size: 14px;
+	-fx-font-weight: bold;
+}
+.dialogButton{
+	-fx-base: black;
+	-fx-text-fill: orange;
+	-fx-font-weight: bold;
+	-fx-border-width: 2px;
+	-fx-border-color: orange;
+}
+
+.label{
+	-fx-text-fill: white;
+	-fx-font-size: 16px;
+}

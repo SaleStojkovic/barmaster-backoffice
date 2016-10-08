@@ -1,0 +1,17 @@
+dbserver=localhost
+database=masterdb2-caribic
+posCode=17
+fiscalFolder=C:\Rmaster\FP Master\fiscal\
+posType=fastfood
+posPrinter=
+posFolder=C:\Rmaster\Print Servis\pos\
+defaultArticleColor=#a0a0a0
+defaultAdditionalColor=#505050
+defaultDescriptionalColor=#cccccc
+defaultQuantity=0
+workDayClose.productsReport=0
+workDayClose.operatorReport=0
+workDayClose.pluReport=0
+workDayClose.stateReport=0
+workDayClose.dailyReport=1
+fullscreen=false

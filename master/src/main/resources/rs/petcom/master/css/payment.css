@@ -1,0 +1,48 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+.labelSumary{
+	-fx-background-color: #4f5460;
+	-fx-text-fill: white;
+	-fx-font-size: 18px;
+	-fx-padding: 0px 20px 0px 20px;
+}
+.labelSumaryValue{
+	-fx-background-color: #4f5460;
+	-fx-text-fill: white;
+	-fx-font-size: 18px;
+	-fx-font-weight: bold;
+	-fx-padding: 0px 20px 0px 20px;
+}
+
+#cancelButton{
+	-fx-text-fill: orange;
+	-fx-font-weight: bold;
+}
+
+#postButton{
+	-fx-text-fill: orange;
+	-fx-font-weight: bold;
+}
+
+#combinedPane{
+	-fx-background-color: #21252e;
+}
+
+#combinedButton:selected{
+	-fx-border-image-slice: 10 10 10 10 fill;  
+  	-fx-border-image-width: 5 0 5 5;  
+  	-fx-border-image-repeat: stretch ;   
+	-fx-border-image-source: url("/rs/petcom/master/img/s-border.png");
+	-fx-border-width: 1px; 	
+}
+
+.combinedLabel{
+	-fx-background-color: #21252e;
+	-fx-text-fill: white;
+	-fx-font-size: 18px;
+}
+.combinedValue{
+	-fx-text-fill: white;
+	-fx-font-size: 18px;
+	-fx-font-weight: bold;
+}

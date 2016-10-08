@@ -1,0 +1,21 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+#rootPane{
+	-fx-background-color: #21252e;
+	-fx-border-width: 0px;
+	-fx-background-radius: 0;
+}
+
+.label{
+	-fx-text-fill: white;
+	-fx-font-weight: normal;
+}
+
+.button{
+	-fx-base: #21252e;
+	-fx-text-fill: orange;
+	-fx-font-weight: bold;
+}
+.date-picker-popup > .month-year-pane {
+   -fx-base: orange;
+}

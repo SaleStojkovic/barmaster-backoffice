@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
+<!-- 2016-06-27T10:17:26 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="VatRecap" pageWidth="250" pageHeight="100" columnWidth="250" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" whenResourceMissingType="Error" uuid="608838b4-3747-4e75-a9eb-913fcf4daf31">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Masterdb2"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<parameter name="documentId" class="java.lang.Long"/>
+	<parameter name="nalogZaIspravku" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[select 
+	v.Name,
+	v.Code,
+	(v.Value - 1) * 100 as vat,
+	sum(cast(((dd.Quantity * dd.Price * ((1-dd.Discount/100) - (1-dd.Discount/100) * v.Value3)) + (dd.Quantity * dd.Price * (1-dd.Discount/100) * dd.Discount / 100)) as decimal(18,2))) as bruto,
+	sum(cast((dd.Quantity * dd.Price * (1-dd.Discount/100) * v.Value3 ) as decimal(18,2))) as totalVatValue
+from documentdetails dd 
+left join vat v on v.VatID = dd.VatID
+
+where dd.DocumentID =  $P{documentId} 
+
+group by 1]]>
+	</queryString>
+	<field name="Name" class="java.lang.String"/>
+	<field name="Code" class="java.lang.String"/>
+	<field name="vat" class="java.math.BigDecimal"/>
+	<field name="bruto" class="java.math.BigDecimal"/>
+	<field name="totalVatValue" class="java.math.BigDecimal"/>
+	<variable name="bruto1" class="java.math.BigDecimal" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{bruto}]]></variableExpression>
+	</variable>
+	<variable name="totalVatValue1" class="java.math.BigDecimal" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{totalVatValue}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="12">
+			<staticText>
+				<reportElement x="0" y="0" width="250" height="12" uuid="b07c10d6-39e7-4d4d-9729-45b79ac69e18">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Obračun PDV]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="9" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="50" height="9" uuid="f35919ac-8625-4c12-92c7-0e511b05ed6f">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.4"/>
+					<bottomPen lineWidth="0.4"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Naziv]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="0" width="50" height="9" uuid="8b4cff29-3d54-4bd2-bb5b-1375d0792d5a"/>
+				<box>
+					<topPen lineWidth="0.4"/>
+					<bottomPen lineWidth="0.4"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Oznaka]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="0" width="50" height="9" uuid="b423598c-f135-4b5e-afb4-6afd727ae791"/>
+				<box>
+					<topPen lineWidth="0.4"/>
+					<bottomPen lineWidth="0.4"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[%]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="150" y="0" width="50" height="9" uuid="e33af896-b91d-4603-b786-4830c02c45cb"/>
+				<box>
+					<topPen lineWidth="0.4"/>
+					<bottomPen lineWidth="0.4"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Osnovica]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="0" width="50" height="9" uuid="722c67bd-dcf6-4184-90e7-ff332949ab15"/>
+				<box>
+					<topPen lineWidth="0.4"/>
+					<bottomPen lineWidth="0.4"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PDV]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="9" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="50" height="9" uuid="b457e1d2-396e-4c5a-bfc5-46bee926503a">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="0" width="50" height="9" uuid="6492ec15-07de-4d25-99c5-f8ab0c81a429"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Code}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,###.00">
+				<reportElement x="100" y="0" width="50" height="9" uuid="e1b43863-c9c5-4fdd-9276-3690d777288f"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vat}.doubleValue()]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,###.00">
+				<reportElement x="150" y="0" width="50" height="9" uuid="99c86243-07ef-493b-a36e-20d3bb89d841"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($P{nalogZaIspravku} == 0 ? $F{bruto} : ($F{bruto}.doubleValue() * (-1)))]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,###.00">
+				<reportElement x="200" y="0" width="50" height="9" uuid="a54e6160-6919-475e-99ea-f79215afb7d1"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($P{nalogZaIspravku} == 0 ? $F{totalVatValue} : ($F{totalVatValue}.doubleValue() * (-1)))]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="9" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="150" height="9" uuid="6dca38b7-7028-4b35-b6f9-11012be551eb">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.4"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Ukupno]]></text>
+			</staticText>
+			<textField pattern="#,###.00">
+				<reportElement x="150" y="0" width="50" height="9" uuid="a922481b-ca12-4b85-8608-e89d4590ab19"/>
+				<box>
+					<topPen lineWidth="0.4"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($P{nalogZaIspravku} == 0 ? $V{bruto1} : ($V{bruto1}.doubleValue() * (-1)))]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,###.00">
+				<reportElement x="200" y="0" width="50" height="9" uuid="5700e552-07e7-4fc8-8ea2-86f5e92ffa91"/>
+				<box>
+					<topPen lineWidth="0.4"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($P{nalogZaIspravku} == 0 ? $V{totalVatValue1} : ($V{totalVatValue1}.doubleValue() * (-1)))]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+</jasperReport>

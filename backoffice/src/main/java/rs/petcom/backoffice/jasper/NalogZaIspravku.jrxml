@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
+<!-- 2016-07-29T08:26:48 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="NalogZaIspravku" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b4cd276a-eeed-4cb8-a8cb-9873d9783888">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="masterdb2"/>
+	<parameter name="document" class="rs.petcom.master.dal.document.Document"/>
+	<parameter name="person" class="rs.petcom.master.dal.person.Person"/>
+	<parameter name="customer" class="rs.petcom.master.dal.person.Person"/>
+	<parameter name="customerAddress" class="rs.petcom.master.dal.person.Address"/>
+	<parameter name="parentDocumentId" class="java.lang.Long"/>
+	<parameter name="memorandum" class="java.lang.String"/>
+	<parameter name="logo" class="java.lang.String"/>
+	<parameter name="address" class="rs.petcom.master.dal.person.Address"/>
+	<parameter name="datumRacuna" class="java.util.Date"/>
+	<parameter name="nacinPlacanja" class="java.lang.String"/>
+	<parameter name="ImePrezime" class="java.lang.String"/>
+	<parameter name="JMBG" class="java.lang.String"/>
+	<parameter name="BI" class="java.lang.String"/>
+	<parameter name="object" class="rs.petcom.master.dal.Object"/>
+	<queryString>
+		<![CDATA[select 
+	p.Name,
+	dd.Quantity,
+	(v.Value - 1) * 100 as vat,
+	u.Code as jm,
+	cast((dd.price - dd.Price * v.Value3) as decimal(18,2)) as price,
+	cast((dd.Price * v.Value3) as decimal(18,2)) as vatValue,
+	dd.Price as priceVat,
+	dd.Discount,
+	cast((dd.Quantity * dd.Price * ((1-dd.Discount/100) - (1-dd.Discount/100) * v.Value3)) as decimal(18,2)) as value,
+	cast((dd.Quantity * dd.Price * (1-dd.Discount/100) * v.Value3 ) as decimal(18,2)) as totalVatValue,
+	cast((dd.Quantity * dd.Price * (1-dd.Discount/100)) as decimal(18,2)) as valueVat,
+	cast(((dd.Quantity * dd.Price * (1-dd.Discount/100)) * dd.Discount / 100) as decimal(18,2)) as discountValue,
+	cast(((dd.Quantity * dd.Price * ((1-dd.Discount/100) - (1-dd.Discount/100) * v.Value3)) + (dd.Quantity * dd.Price * (1-dd.Discount/100) * dd.Discount / 100)) as decimal(18,2)) as bruto
+from documentdetails dd 
+left join vat v on v.VatID = dd.VatID
+left join product p on p.ProductID = dd.ProductID
+left join Unit u on u.UnitID = p.UnitID
+
+where dd.DocumentID = $P{parentDocumentId}]]>
+	</queryString>
+	<field name="Name" class="java.lang.String"/>
+	<field name="Quantity" class="java.math.BigDecimal"/>
+	<field name="vat" class="java.math.BigDecimal"/>
+	<field name="jm" class="java.lang.String"/>
+	<field name="price" class="java.math.BigDecimal"/>
+	<field name="vatValue" class="java.math.BigDecimal"/>
+	<field name="priceVat" class="java.math.BigDecimal"/>
+	<field name="Discount" class="java.math.BigDecimal"/>
+	<field name="value" class="java.math.BigDecimal"/>
+	<field name="totalVatValue" class="java.math.BigDecimal"/>
+	<field name="valueVat" class="java.math.BigDecimal"/>
+	<field name="discountValue" class="java.math.BigDecimal"/>
+	<field name="bruto" class="java.math.BigDecimal"/>
+	<variable name="value2" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{value}]]></variableExpression>
+	</variable>
+	<variable name="valueVat1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{valueVat}]]></variableExpression>
+	</variable>
+	<variable name="discountValue1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{discountValue}]]></variableExpression>
+	</variable>
+	<variable name="bruto1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{bruto}]]></variableExpression>
+	</variable>
+	<variable name="totalVatValue1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{totalVatValue}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="154" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="16" width="553" height="74" uuid="0e3942d2-57bc-47bf-b17b-3cce5a8f804f">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Obveznik " + $P{object}.getCompanyName() + "\n" +
+"Adresa poslovne jedinice " + $P{address}.getAddress() + "\n" +
+"PIB " + $P{object}.getPIB() + "\n" +
+"Opština " + $P{address}.getMunicipality() +  "\n" +
+"Datum " + new SimpleDateFormat("dd.MM.yyyy").format(new Date())]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="114" width="555" height="22" uuid="04f6543e-521f-4160-b8a8-4201e8ec9f73">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["NALOG ZA ISPRAVKU broj " + $P{document}.getNumber()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="0" y="0" width="100" height="16" uuid="f0394a3e-8cd7-4417-9f12-e20c9f0a4119"/>
+				<textFieldExpression><![CDATA["Obrazac NI"]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="70" splitType="Stretch">
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="-1" y="10" width="555" height="60" uuid="396cb32f-8229-4aef-8568-9f0662194412">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10"/>
+					<paragraph firstLineIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA["\t" + $V{REPORT_COUNT} +". Umanjuje se promet evidentiran u fiskalnom isečku/fiskalnom računu broj " + $P{BI} + " od " + new SimpleDateFormat("dd.MM.yyyy").format($P{document}.getDate()) + " godine, izdatom na fiskalnoj kasi identifikacioni broj " + $P{document}.getAlternativeFullNumber() + ", za iznos " + $F{valueVat}.doubleValue() + " dinara na ime vraćenog dobra: " + $F{Name} + ", jedinica mere: " + $F{jm} + " količina: " + $F{Quantity} + ", cena: " + $F{priceVat} + ", vrednost: " + $F{valueVat} + ", iznos poreza: " + $F{totalVatValue}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="140" splitType="Stretch">
+			<staticText>
+				<reportElement x="368" y="90" width="177" height="30" uuid="5f6fc343-1338-4a1f-a355-9a882c68cb8e">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.4" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[(Potpis ovlašćenog lica)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="70" width="201" height="20" uuid="733d098c-a063-41ce-b244-a0f80b654b43">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[(M.P.)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="100" width="201" height="20" uuid="32954212-0bf2-496f-a9ff-015574584810">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Prilog: fiskalni isečak / fiskalni račun]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="120" width="554" height="20" uuid="d1cbc616-7e77-4bd0-a044-6695dfeca0de">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Napomena: Nalog za ispravku ne potpisuje se od strane kupca ako je iznos novca manji od 500 dinara.]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="70" height="14" uuid="c687375c-eded-4e06-a5b4-76da5ef759da">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10"/>
+					<paragraph firstLineIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA["KUPAC"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="0" y="14" width="70" height="14" uuid="73ff7378-fabe-4d61-a557-27cf4ba891de">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10"/>
+					<paragraph firstLineIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Ime i prezime"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="0" y="28" width="70" height="14" uuid="cb496569-52e0-4c24-9648-f5e7428ab4f6">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10"/>
+					<paragraph firstLineIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA["JMBG"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="0" y="42" width="70" height="14" uuid="0d85aa0b-489f-485c-8038-9435858311bd">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10"/>
+					<paragraph firstLineIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA["KUPAC"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="70" y="14" width="150" height="14" uuid="5de82d24-7dda-4fba-846c-e21999edc0d0">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.4" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10"/>
+					<paragraph firstLineIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ImePrezime}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="70" y="28" width="150" height="14" uuid="e3a02c66-aa49-4ebb-9233-de175769f65d">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.4" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10"/>
+					<paragraph firstLineIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{JMBG}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="70" y="42" width="150" height="14" uuid="dfe5d4ff-9021-4506-bc52-273fd5447a06">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.4" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10"/>
+					<paragraph firstLineIndent="2"/>
+				</textElement>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

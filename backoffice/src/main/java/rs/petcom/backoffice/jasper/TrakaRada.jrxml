@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
+<!-- 2016-08-09T15:34:52 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="TrakaRada" pageWidth="595" pageHeight="842" whenNoDataType="NoDataSection" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" resourceBundle="locale" uuid="be1a5c07-418d-40ca-b187-0d6496eb2140">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Masterdb2"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="datumDo" class="java.sql.Date"/>
+	<parameter name="datumOd" class="java.sql.Date"/>
+	<parameter name="objekatId" class="java.lang.Integer"/>
+	<parameter name="posId" class="java.lang.Integer"/>
+	<parameter name="uslovi" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select 
+	w.Date as workday,
+	dd.sysDTCreated as timestamp,
+	p.Name as artikal,
+	dd.Quantity,
+	u.UserName,
+	pos.Name as posName,
+	pm.Name as nacinPlacanja,
+	pos.Name as kasa
+  from documentdetails dd
+  inner join document d on d.DocumentID = dd.DocumentID 
+  								and (($P{posId} = -1) or ($P{posId} > 0 and d.PointOfSaleID = $P{posId}))
+  								and d.DocumentTypeID in (3,18)
+  inner join workday w on w.WorkDayID = d.WorkDayID and w.Date >= $P{datumOd}  and w.Date <= $P{datumDo} 
+  inner join pointofsale pos on pos.PointOfSaleID = d.PointOfSaleID and pos.ObjectID = $P{objekatId} 
+  left join product p on p.ProductID = dd.ProductID
+  left join `user` u on u.UserID = dd.sysUserAddID 
+  left join paymentmethod pm on pm.PaymentMethodID = d.PaymentMethodID
+  order by d.date]]>
+	</queryString>
+	<field name="workday" class="java.sql.Date"/>
+	<field name="timestamp" class="java.sql.Timestamp"/>
+	<field name="artikal" class="java.lang.String"/>
+	<field name="Quantity" class="java.math.BigDecimal"/>
+	<field name="UserName" class="java.lang.String"/>
+	<field name="posName" class="java.lang.String"/>
+	<field name="nacinPlacanja" class="java.lang.String"/>
+	<field name="kasa" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="46" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="555" height="20" uuid="d2b5f72b-18ca-42d4-9c94-4cc7cb3bf128"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Traka rada"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="20" width="555" height="20" uuid="3f867b9f-3b80-4383-9640-421c4fd91cbc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{uslovi}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="12" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="44" height="12" uuid="84d7386e-ba33-4895-abbb-64ae6c9e0f08">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.4"/>
+					<bottomPen lineWidth="0.4"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Radni dan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="44" y="0" width="75" height="12" uuid="a408ef9c-b788-4729-a8de-d8b8851e9140"/>
+				<box>
+					<topPen lineWidth="0.4"/>
+					<bottomPen lineWidth="0.4"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Datum i vreme]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="119" y="0" width="180" height="12" uuid="86fb3a95-f1ae-45e3-b499-194ea3e7572f"/>
+				<box>
+					<topPen lineWidth="0.4"/>
+					<bottomPen lineWidth="0.4"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Naziv artikla]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="299" y="0" width="40" height="12" uuid="0358d714-0fb7-4298-97e6-398bc6937f07"/>
+				<box>
+					<topPen lineWidth="0.4"/>
+					<bottomPen lineWidth="0.4"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Količina]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="339" y="0" width="79" height="12" uuid="ff1fa26d-ebfb-49a1-91c2-18a744259b28"/>
+				<box>
+					<topPen lineWidth="0.4"/>
+					<bottomPen lineWidth="0.4"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Korisnik]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="418" y="0" width="91" height="12" uuid="4cbf2909-1e67-4104-a80c-3d06317c4d30"/>
+				<box>
+					<topPen lineWidth="0.4"/>
+					<bottomPen lineWidth="0.4"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Način plaćanja]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="509" y="0" width="46" height="12" uuid="e09ae6b5-85e9-4a59-b98a-6d51a42e363c"/>
+				<box>
+					<topPen lineWidth="0.4"/>
+					<bottomPen lineWidth="0.4"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Kasa]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="12" splitType="Stretch">
+			<textField pattern="dd.MM.yyyy">
+				<reportElement x="0" y="0" width="44" height="12" uuid="64d44262-d2de-4542-8164-545e30dc4a6b">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{workday}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd.MM.yyyy HH:mm:ss">
+				<reportElement x="44" y="0" width="75" height="12" uuid="c1b408f6-f189-49ff-b607-0fa799e40768"/>
+				<textElement verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{timestamp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="119" y="0" width="180" height="12" uuid="b77e44d7-452e-4e3d-a665-a2c8f2918bab"/>
+				<box leftPadding="2"/>
+				<textElement verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{artikal}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.0000">
+				<reportElement x="299" y="0" width="40" height="12" uuid="7da7ca6c-02f4-413c-b72b-d37365821aba"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Quantity}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="339" y="0" width="79" height="12" uuid="8c6a0aac-c18c-4a72-95ee-c3520c4b0af7"/>
+				<box leftPadding="3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{UserName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="418" y="0" width="91" height="12" uuid="b1847b5a-c19b-487c-a605-2b60b027b6a7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nacinPlacanja}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="509" y="0" width="46" height="12" uuid="a45f1de3-6fef-41e3-9520-0a777410e4bf"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kasa}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="10" splitType="Stretch">
+			<textField evaluationTime="Master">
+				<reportElement x="380" y="0" width="175" height="10" uuid="fa55e895-26ff-402e-a9a5-5071aa3f97a5"/>
+				<box>
+					<topPen lineWidth="0.4"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="7" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$R{page} + $V{MASTER_CURRENT_PAGE} + " " + $R{pageOf} + $V{MASTER_TOTAL_PAGES}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report" pattern="dd.MM.yyyy HH:mm:ss">
+				<reportElement x="0" y="0" width="179" height="10" uuid="5ed82dd2-7568-4e59-bf88-6357c1ba82b8"/>
+				<box>
+					<topPen lineWidth="0.4"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="7" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="179" y="0" width="201" height="10" uuid="1fe3c6c6-e4d6-4ab6-bf86-66293b0678cf"/>
+				<box>
+					<topPen lineWidth="0.4"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Powered by  Master Software Solution - www.petcom.rs]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

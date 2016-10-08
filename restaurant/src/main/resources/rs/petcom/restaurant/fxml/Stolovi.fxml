@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import rs.petcom.restaurant.gui.SalePlaceToggleButton?>
+
+<BorderPane fx:id="rootPane" prefHeight="700.0" prefWidth="1000.0" stylesheets="@../css/application.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rs.petcom.restaurant.controller.StoloviController">
+   <center>
+      <GridPane alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" prefWidth="128.0" />
+            <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" prefWidth="128.0" />
+            <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" prefWidth="128.0" />
+            <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" prefWidth="128.0" />
+            <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" prefWidth="128.0" />
+            <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" prefWidth="128.0" />
+            <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" prefWidth="128.0" />
+            <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" prefWidth="128.0" />
+          <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" prefWidth="128.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" prefHeight="32.0" vgrow="ALWAYS" />
+          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" prefHeight="32.0" vgrow="ALWAYS" />
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" prefHeight="32.0" vgrow="ALWAYS" />
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" prefHeight="32.0" vgrow="ALWAYS" />
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" prefHeight="32.0" vgrow="ALWAYS" />
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" prefHeight="32.0" vgrow="ALWAYS" />
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" prefHeight="32.0" vgrow="ALWAYS" />
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" prefHeight="32.0" vgrow="ALWAYS" />
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" prefHeight="32.0" vgrow="ALWAYS" />
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" prefHeight="32.0" vgrow="ALWAYS" />
+          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" prefHeight="32.0" vgrow="ALWAYS" />
+          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" prefHeight="32.0" vgrow="ALWAYS" />
+        </rowConstraints>
+         <children>
+            <Button id="logoutButton" fx:id="logoutButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#logout" prefHeight="32" prefWidth="64" text="Logout" GridPane.columnIndex="8">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0">
+                     <image>
+                        <Image url="/rs/petcom/master/img/24-w-logout.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Label fx:id="clockLabel" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="64.0" styleClass="headerLabel" text="00:00:00" GridPane.columnIndex="7" />
+            <Label fx:id="lokacijaLabel" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="64.0" styleClass="headerLabel" text="Lokacija" GridPane.columnIndex="4" />
+            <Label fx:id="userLabel" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="64.0" styleClass="headerLabel" text="Korisnik" GridPane.columnIndex="3" />
+            <ImageView fitHeight="50.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnSpan="2">
+               <image>
+                  <Image url="/rs/petcom/master/img/R-master-restaurant-logo.png" />
+               </image>
+            </ImageView>
+            <Button contentDisplay="TOP" graphicTextGap="0.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="32.0" prefWidth="64.0" text="Button" wrapText="true" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="11" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+               <styleClass>
+                  <String fx:value="actionButton" />
+                  <String fx:value="borderRight" />
+               </styleClass></Button>
+            <Button contentDisplay="TOP" graphicTextGap="0.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="32.0" prefWidth="64.0" text="Administracija" wrapText="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="11" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+               <styleClass>
+                  <String fx:value="actionButton" />
+                  <String fx:value="borderLeftRight" />
+               </styleClass></Button>
+            <Button contentDisplay="TOP" graphicTextGap="0.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="32.0" prefWidth="64.0" text="Brza naplata" wrapText="true" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="11" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+               <styleClass>
+                  <String fx:value="actionButton" />
+                  <String fx:value="borderLeft" />
+               </styleClass></Button>
+            <SalePlaceToggleButton fx:id="salePlaceButton0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#selectSalePlace" prefHeight="32.0" prefWidth="64.0" text="ToggleButton" wrapText="true" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="10" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+               <toggleGroup>
+                  <ToggleGroup fx:id="salePlaceGroup" />
+               </toggleGroup>
+               <styleClass>
+                  <String fx:value="groupButton" />
+                  <String fx:value="borderBottom" />
+               </styleClass>
+            </SalePlaceToggleButton>
+            <SalePlaceToggleButton fx:id="salePlaceButton1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#selectSalePlace" prefHeight="32.0" prefWidth="64.0" text="ToggleButton" toggleGroup="$salePlaceGroup" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="10" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+               <styleClass>
+                  <String fx:value="groupButton" />
+                  <String fx:value="borderBottomLeft" />
+               </styleClass>
+            </SalePlaceToggleButton>
+            <SalePlaceToggleButton fx:id="salePlaceButton2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#selectSalePlace" prefHeight="32.0" prefWidth="64.0" text="ToggleButton" toggleGroup="$salePlaceGroup" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="10" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+               <styleClass>
+                  <String fx:value="groupButton" />
+                  <String fx:value="borderBottomLeft" />
+               </styleClass>
+            </SalePlaceToggleButton>
+            <SalePlaceToggleButton fx:id="salePlaceButton3" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#selectSalePlace" prefHeight="32.0" prefWidth="64.0" text="ToggleButton" toggleGroup="$salePlaceGroup" wrapText="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="10" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+               <styleClass>
+                  <String fx:value="groupButton" />
+                  <String fx:value="borderBottomLeft" />
+               </styleClass>
+            </SalePlaceToggleButton>
+            <SalePlaceToggleButton fx:id="salePlaceButton4" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#selectSalePlace" prefHeight="32.0" prefWidth="64.0" text="ToggleButton" toggleGroup="$salePlaceGroup" wrapText="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="10" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+               <styleClass>
+                  <String fx:value="groupButton" />
+                  <String fx:value="borderBottomLeft" />
+               </styleClass>
+            </SalePlaceToggleButton>
+            <SalePlaceToggleButton fx:id="salePlaceButton5" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#selectSalePlace" prefHeight="32.0" prefWidth="64.0" text="ToggleButton" toggleGroup="$salePlaceGroup" wrapText="true" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="10" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+               <styleClass>
+                  <String fx:value="groupButton" />
+                  <String fx:value="borderBottomLeft" />
+               </styleClass>
+            </SalePlaceToggleButton>
+            <SalePlaceToggleButton fx:id="salePlaceButton6" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#selectSalePlace" prefHeight="32.0" prefWidth="64.0" text="ToggleButton" toggleGroup="$salePlaceGroup" wrapText="true" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="10" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+               <styleClass>
+                  <String fx:value="groupButton" />
+                  <String fx:value="borderBottomLeft" />
+               </styleClass>
+            </SalePlaceToggleButton>
+            <SalePlaceToggleButton fx:id="salePlaceButton7" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#selectSalePlace" prefHeight="32.0" prefWidth="64.0" text="ToggleButton" toggleGroup="$salePlaceGroup" wrapText="true" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="10" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+               <styleClass>
+                  <String fx:value="groupButton" />
+                  <String fx:value="borderBottomLeft" />
+               </styleClass>
+            </SalePlaceToggleButton>
+            <SalePlaceToggleButton fx:id="salePlaceButton8" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#selectSalePlace" prefHeight="32.0" prefWidth="64.0" text="ToggleButton" toggleGroup="$salePlaceGroup" wrapText="true" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="10" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+               <styleClass>
+                  <String fx:value="groupButton" />
+                  <String fx:value="borderBottomLeft" />
+               </styleClass>
+            </SalePlaceToggleButton>
+            <BorderPane fx:id="backGrounPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="9" GridPane.rowIndex="1" GridPane.rowSpan="9">
+               <center>
+                  <ImageView fx:id="imageViewSala" fitHeight="132.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" styleClass="imageView" BorderPane.alignment="CENTER" />
+               </center>
+            </BorderPane>
+            <AnchorPane fx:id="saleTablePane" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="9" GridPane.rowIndex="1" GridPane.rowSpan="9" />
+         </children>
+      </GridPane>
+   </center>
+</BorderPane>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane id="rootPane" fx:id="rootPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="651.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rs.petcom.backoffice.controller.reports.DPUDetailesController">
+   <top>
+      <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Datum: ">
+               <HBox.margin>
+                  <Insets left="10.0" right="10.0" />
+               </HBox.margin>
+            </Label>
+            <DatePicker fx:id="dpDatum" minHeight="-Infinity" minWidth="-Infinity" onAction="#dpDatumChange" prefHeight="30.0" prefWidth="150.0" />
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="ALWAYS" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="50.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <TableView fx:id="tableDI" editable="true" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+              <columns>
+                <TableColumn fx:id="tcDiNumber" prefWidth="120.0" text="Dnveni izveštaj" />
+                  <TableColumn fx:id="tcDiSum" editable="false" prefWidth="100.0" styleClass="doubleColumn" text="Ukupno" />
+                <TableColumn fx:id="tcDiCash" prefWidth="100.0" styleClass="doubleColumn" text="Gotovina" />
+                  <TableColumn fx:id="tcDiCard" prefWidth="100.0" styleClass="doubleColumn" text="Platna kartica" />
+                  <TableColumn fx:id="tcDiRest" prefWidth="100.0" styleClass="doubleColumn" text="Bezgotovinski" />
+              </columns>
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </TableView>
+            <TableView fx:id="tableNI" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3">
+              <columns>
+                <TableColumn fx:id="tcNiNumber" prefWidth="120.0" text="Nalog za ispravku" />
+                <TableColumn fx:id="tcNiSum" prefWidth="100.0" text="Ukupno" />
+                  <TableColumn fx:id="tcNiCash" prefWidth="100.0" text="Gotovina" />
+                  <TableColumn fx:id="tcNiCard" prefWidth="100.0" text="Platna kartica" />
+                  <TableColumn fx:id="tcNiRest" prefWidth="100.0" text="Bezgotovisnki" />
+              </columns>
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </TableView>
+            <TableView fx:id="tableSF" editable="true" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="5">
+              <columns>
+                <TableColumn fx:id="tcSfNumber" prefWidth="120.0" text="Fiskalni račun" />
+                <TableColumn fx:id="tcSfSum" editable="false" prefWidth="100.0" text="Ukupno" />
+                  <TableColumn fx:id="tcSfCash" prefWidth="100.0" text="Gotovina" />
+                  <TableColumn fx:id="tcSfCard" prefWidth="100.0" text="Platna kartica" />
+                  <TableColumn fx:id="tcSfRest" prefWidth="100.0" text="Bezgotovinski" />
+              </columns>
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </TableView>
+            <Label text="Specifikacija dnevnih izveštaja">
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Specifikacija Naloga za ispravku" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Specifikacija fiskalnih računa" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </Label>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+               <children>
+                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#diAddClick" prefHeight="35.0" prefWidth="35.0" text="+" />
+                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#diRemoveClick" prefHeight="35.0" prefWidth="35.0" text="-" />
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <children>
+                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#sfAddClick" prefHeight="35.0" prefWidth="35.0" text="+" />
+                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#sfRemoveClick" prefHeight="35.0" prefWidth="35.0" text="-" />
+               </children>
+            </VBox>
+         </children>
+      </GridPane>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="200.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnClose" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#cancelClick" prefHeight="35.0" prefWidth="120.0" text="Zatvori" />
+            <Button fx:id="btnSave" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#saveClick" prefHeight="35.0" prefWidth="120.0" text="Sačuvaj" />
+            <Button fx:id="btnPrint" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#printClick" prefHeight="35.0" prefWidth="120.0" text="Štampaj" visible="false" />
+         </children>
+      </HBox>
+   </bottom>
+   <stylesheets>
+      <URL value="@../../css/table.css" />
+      <URL value="@../../css/backoffice.css" />
+   </stylesheets>
+</BorderPane>

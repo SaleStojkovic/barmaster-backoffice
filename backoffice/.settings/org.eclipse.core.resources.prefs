@@ -1,0 +1,17 @@
+eclipse.preferences.version=1
+encoding//src/main/java=UTF-8
+encoding//src/main/java/rs/petcom/backoffice/jasper/DPUv2.jrxml=UTF-8
+encoding//src/main/java/rs/petcom/backoffice/jasper/DocumentCorrection.jrxml=UTF-8
+encoding//src/main/java/rs/petcom/backoffice/jasper/DocumentCorrectionSub.jrxml=UTF-8
+encoding//src/main/java/rs/petcom/backoffice/jasper/NalogZaIspravku.jrxml=UTF-8
+encoding//src/main/java/rs/petcom/backoffice/jasper/PocetnoStanje.jrxml=UTF-8
+encoding//src/main/java/rs/petcom/backoffice/jasper/PresekSmene.jrxml=UTF-8
+encoding//src/main/java/rs/petcom/backoffice/jasper/Presifriranje.jrxml=UTF-8
+encoding//src/main/java/rs/petcom/backoffice/jasper/Prijemnica.jrxml=UTF-8
+encoding//src/main/java/rs/petcom/backoffice/jasper/SalesReport.jrxml=UTF-8
+encoding//src/main/java/rs/petcom/backoffice/jasper/SalesReportExpense.jrxml=UTF-8
+encoding//src/main/java/rs/petcom/backoffice/jasper/SravnjenjePoPopisu.jrxml=UTF-8
+encoding//src/main/java/rs/petcom/backoffice/jasper/StockReport.jrxml=UTF-8
+encoding//src/main/java/rs/petcom/backoffice/jasper/TrakaRada.jrxml=UTF-8
+encoding//src/main/resources=UTF-8
+encoding/<project>=UTF-8

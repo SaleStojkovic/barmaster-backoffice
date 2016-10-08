@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="rootPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="600.0" minWidth="800.0" prefHeight="740.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rs.petcom.master.controller.LoginController">
+   <center>
+      <GridPane id="mainPane" fx:id="mainGrid" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="600.0" minWidth="800.0" prefHeight="600.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="32.0" />
+            <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="32.0" />
+            <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="32.0" />
+            <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="32.0" />
+            <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="32.0" />
+            <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="32.0" />
+            <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="32.0" />
+            <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="32.0" />
+            <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="32.0" />
+            <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="32.0" />
+            <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="32.0" />
+          <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="32.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="1.7976931348623157E308" prefHeight="32.0" vgrow="ALWAYS" />
+            <RowConstraints maxHeight="1.7976931348623157E308" prefHeight="32.0" vgrow="ALWAYS" />
+            <RowConstraints maxHeight="1.7976931348623157E308" prefHeight="32.0" vgrow="ALWAYS" />
+            <RowConstraints maxHeight="1.7976931348623157E308" prefHeight="32.0" vgrow="ALWAYS" />
+            <RowConstraints maxHeight="1.7976931348623157E308" prefHeight="32.0" vgrow="ALWAYS" />
+            <RowConstraints maxHeight="1.7976931348623157E308" prefHeight="32.0" vgrow="ALWAYS" />
+            <RowConstraints maxHeight="1.7976931348623157E308" prefHeight="32.0" vgrow="ALWAYS" />
+            <RowConstraints maxHeight="1.7976931348623157E308" prefHeight="32.0" vgrow="ALWAYS" />
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="32.0" vgrow="ALWAYS" />
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="32.0" vgrow="ALWAYS" />
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="32.0" vgrow="ALWAYS" />
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="32.0" vgrow="ALWAYS" />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+        </rowConstraints>
+         <children>
+            <GridPane id="loginStrip" minHeight="600.0" prefHeight="768.0" GridPane.columnIndex="8" GridPane.columnSpan="3" GridPane.rowSpan="12">
+              <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="32.0" valignment="TOP" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <GridPane id="actionPanel" GridPane.rowIndex="8" GridPane.rowSpan="2">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button id="buttonPrijava" fx:id="buttonPrijava" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="loginActionButton" text="Prijava" />
+                        <Button id="buttonPodrska" fx:id="buttonPodrska" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#supprotClicked" styleClass="loginActionButton" text="Podrška" GridPane.columnIndex="1" />
+                        <Button id="buttonNumerik" fx:id="buttonNumerik" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#toggleNumeric" styleClass="loginActionButton" text="Numerik" GridPane.columnIndex="2" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </GridPane>
+                  <BorderPane minWidth="150.0" prefHeight="44.0" prefWidth="289.0">
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                     <center>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                           <image>
+                              <Image url="@../img/R-master-restaurant-pozitive.png" />
+                           </image>
+                        </ImageView>
+                     </center>
+                     <right>
+                        <Pane nodeOrientation="LEFT_TO_RIGHT" prefHeight="24.0" prefWidth="24.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Button id="exitButton" alignment="TOP_CENTER" graphicTextGap="0.0" maxHeight="32.0" maxWidth="32.0" minHeight="32.0" minWidth="32.0" mnemonicParsing="false" onAction="#exitClick" prefHeight="32.0" prefWidth="32.0" />
+                              <ImageView fitHeight="16.0" fitWidth="16.0" layoutX="7.0" layoutY="10.0" onMouseClicked="#exitClick" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/24-w-cancel.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                     </right>
+                  </BorderPane>
+                  <GridPane id="numericPane" fx:id="numericPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" visible="false" GridPane.rowIndex="3" GridPane.rowSpan="4">
+                    <columnConstraints>
+                      <ColumnConstraints />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                     <children>
+                        <Button fx:id="button7" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" styleClass="numericButton" text="7" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                        <Button fx:id="button8" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" styleClass="numericButton" text="8" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <Button fx:id="button6" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" styleClass="numericButton" text="6" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                        <Button fx:id="button5" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" styleClass="numericButton" text="5" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <Button fx:id="button4" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" styleClass="numericButton" text="4" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Button fx:id="button9" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" styleClass="numericButton" text="9" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                        <Button fx:id="button3" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" styleClass="numericButton" text="3" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                        <Button fx:id="button2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" styleClass="numericButton" text="2" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                        <Button fx:id="button1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" styleClass="numericButton" text="1" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Button fx:id="button0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" styleClass="numericButton" text="0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                        <Button fx:id="buttonEnter" defaultButton="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#commitCode" styleClass="numericButton" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                           <graphic>
+                              <ImageView>
+                                 <image>
+                                    <Image url="@../img/24-w-confirm.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button fx:id="buttonDelete" graphicTextGap="0.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" styleClass="numericButton" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <graphic>
+                              <ImageView>
+                                 <image>
+                                    <Image url="@../img/24-w-delete.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <PasswordField id="passwordField" fx:id="password" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" onAction="#commitCode" prefHeight="30.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.columnSpan="3" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </GridPane>
+                  <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="100.0" GridPane.rowIndex="7">
+                     <children>
+                        <Label id="labelClock" fx:id="labelClock" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
+                        <Label id="labelDate" fx:id="labelDate" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
+                     </children>
+                  </VBox>
+               </children>
+            </GridPane>
+         </children>
+         <stylesheets>
+            <URL value="@../css/login.css" />
+            <URL value="@../css/application.css" />
+         </stylesheets>
+      </GridPane>
+   </center>
+</BorderPane>

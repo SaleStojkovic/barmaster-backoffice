@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
+<!-- 2016-07-13T10:31:21 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DPUv2_Summary1" pageWidth="550" pageHeight="300" whenNoDataType="AllSectionsNoDetail" columnWidth="550" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" whenResourceMissingType="Empty" uuid="9d8824c7-3d25-4ff7-bfcc-16c38f27c0cc">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Masterdb2"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<parameter name="datum" class="java.sql.Date"/>
+	<parameter name="objekatId" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[CALL dpu_specifikacija_ni( $P{datum}, $P{objekatId} )]]>
+	</queryString>
+	<field name="Number" class="java.lang.String"/>
+	<field name="Cash" class="java.math.BigDecimal"/>
+	<field name="Card" class="java.math.BigDecimal"/>
+	<field name="NonFiscal" class="java.math.BigDecimal"/>
+	<variable name="Cash1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[($F{Cash} == null) ? $F{Cash} : 0]]></variableExpression>
+	</variable>
+	<variable name="Card1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[($F{Card} == null) ? $F{Card} : 0]]></variableExpression>
+	</variable>
+	<variable name="NonFiscal1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[($F{NonFiscal} == null) ? $F{NonFiscal} : 0]]></variableExpression>
+	</variable>
+	<variable name="Cash2" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{Cash}]]></variableExpression>
+	</variable>
+	<variable name="Card2" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{Card}]]></variableExpression>
+	</variable>
+	<variable name="NonFiscal2" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{NonFiscal}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="19" splitType="Stretch">
+			<staticText>
+				<reportElement x="240" y="7" width="80" height="12" uuid="f17642f5-6673-43b8-ac46-1f1ea5345325">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.4"/>
+					<leftPen lineWidth="0.4"/>
+					<bottomPen lineWidth="0.4"/>
+					<rightPen lineWidth="0.4"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Gotovina]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="320" y="7" width="80" height="12" uuid="ce621de1-a57c-41fa-98ba-a2cf74dd47a7"/>
+				<box>
+					<topPen lineWidth="0.4"/>
+					<leftPen lineWidth="0.4"/>
+					<bottomPen lineWidth="0.4"/>
+					<rightPen lineWidth="0.4"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Platne kartice]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="7" width="80" height="12" uuid="0081947e-9161-4597-8d2e-2803467a2952"/>
+				<box>
+					<topPen lineWidth="0.4"/>
+					<leftPen lineWidth="0.4"/>
+					<bottomPen lineWidth="0.4"/>
+					<rightPen lineWidth="0.4"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Bezgotovinski]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="160" y="7" width="80" height="12" uuid="8c72afe5-e411-4306-8c53-a074b280816f">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.4"/>
+					<leftPen lineWidth="0.4"/>
+					<bottomPen lineWidth="0.4"/>
+					<rightPen lineWidth="0.4"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Ukupno]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="7" width="160" height="12" uuid="8f143e7f-3b62-4e3c-a80d-f91b9802380f">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Specifikacija naloga za ispravku:"]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="12" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<printWhenExpression><![CDATA[($F{Cash}.doubleValue() + $F{Card}.doubleValue() + $F{NonFiscal}.doubleValue()) != 0]]></printWhenExpression>
+			<textField>
+				<reportElement x="80" y="0" width="80" height="12" uuid="954bf38c-b18e-457b-9e54-5086e816c800">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.4"/>
+					<leftPen lineWidth="0.4"/>
+					<bottomPen lineWidth="0.4"/>
+					<rightPen lineWidth="0.4"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Number}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="240" y="0" width="80" height="12" uuid="1a2b3ce2-a345-4e5e-809b-9d64b0d85fd4"/>
+				<box rightPadding="2">
+					<topPen lineWidth="0.4"/>
+					<leftPen lineWidth="0.4"/>
+					<bottomPen lineWidth="0.4"/>
+					<rightPen lineWidth="0.4"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Cash}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="320" y="0" width="80" height="12" uuid="bdb6d7d5-62eb-4035-8ec8-d556dbb299ef"/>
+				<box rightPadding="2">
+					<topPen lineWidth="0.4"/>
+					<leftPen lineWidth="0.4"/>
+					<bottomPen lineWidth="0.4"/>
+					<rightPen lineWidth="0.4"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Card}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="400" y="0" width="80" height="12" uuid="e1b09e11-9cf6-4dac-92a3-b7a5669a0141"/>
+				<box rightPadding="2">
+					<topPen lineWidth="0.4"/>
+					<leftPen lineWidth="0.4"/>
+					<bottomPen lineWidth="0.4"/>
+					<rightPen lineWidth="0.4"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NonFiscal}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="160" y="0" width="80" height="12" uuid="846d8a08-4a3b-489e-a152-5e6e47a96796"/>
+				<box rightPadding="2">
+					<topPen lineWidth="0.4"/>
+					<leftPen lineWidth="0.4"/>
+					<bottomPen lineWidth="0.4"/>
+					<rightPen lineWidth="0.4"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Cash}.doubleValue() + $F{Card}.doubleValue() + $F{NonFiscal}.doubleValue()]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="12" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="240" y="0" width="80" height="12" uuid="452e34ef-ff39-41fc-91ca-2fe634063eec">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box rightPadding="2">
+					<topPen lineWidth="0.4"/>
+					<leftPen lineWidth="0.4"/>
+					<bottomPen lineWidth="0.4"/>
+					<rightPen lineWidth="0.4"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{Cash2}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="320" y="0" width="80" height="12" uuid="07f1566f-a7bb-4d31-b7f0-69c7e65c6b2b"/>
+				<box rightPadding="2">
+					<topPen lineWidth="0.4"/>
+					<leftPen lineWidth="0.4"/>
+					<bottomPen lineWidth="0.4"/>
+					<rightPen lineWidth="0.4"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{Card2}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="400" y="0" width="80" height="12" uuid="980e9015-2a9f-42a5-8253-42523a8ef856"/>
+				<box rightPadding="2">
+					<topPen lineWidth="0.4"/>
+					<leftPen lineWidth="0.4"/>
+					<bottomPen lineWidth="0.4"/>
+					<rightPen lineWidth="0.4"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NonFiscal}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto" pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="160" y="0" width="80" height="12" uuid="9f466b65-11ff-42a4-a1ed-f7c8e5584416">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box rightPadding="2">
+					<topPen lineWidth="0.4"/>
+					<leftPen lineWidth="0.4"/>
+					<bottomPen lineWidth="0.4"/>
+					<rightPen lineWidth="0.4"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{Cash2}.doubleValue() + $V{Card2}.doubleValue() + $V{NonFiscal2}.doubleValue()]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="80" y="0" width="80" height="12" uuid="ae38a094-e9d2-4a82-a572-9fd78c5a0bd2">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box rightPadding="2">
+					<topPen lineWidth="0.4"/>
+					<leftPen lineWidth="0.4"/>
+					<bottomPen lineWidth="0.4"/>
+					<rightPen lineWidth="0.4"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Ukupno: "]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

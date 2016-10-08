@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="493.0" prefWidth="603.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rs.petcom.master.controller.backoffice.BoPriceListController">
+   <top>
+      <TitledPane collapsible="false" text="Aktivni cenovnici" BorderPane.alignment="CENTER">
+         <content>
+            <TableView fx:id="priceListTable" prefHeight="200.0" prefWidth="200.0">
+               <columns>
+                  <TableColumn fx:id="titleCol" maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="-1.0" text="Naziv" />
+                  <TableColumn fx:id="dateFromCol" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" resizable="false" text="Datum od" />
+                  <TableColumn fx:id="dateToCol" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" resizable="false" text="Datum do" />
+                  <TableColumn fx:id="priorityCol" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" resizable="false" text="Prioritet" />
+               </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy></TableView>
+         </content>
+      </TitledPane>
+   </top>
+   <center>
+      <BorderPane fx:id="reportPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </center>
+   <stylesheets>
+      <URL value="@../../css/backoffice/backoffice.css" />
+      <URL value="@../../css/table.css" />
+   </stylesheets>
+</BorderPane>

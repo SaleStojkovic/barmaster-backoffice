@@ -1,0 +1,241 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+.scroll-pane {
+   -fx-background-color: transparent;
+}
+.scroll-pane > .viewport {
+   -fx-background-color: transparent;
+}
+
+#headerTraka{
+	-fx-background-color: #21252e;	
+}
+#trakaAkcije{
+	-fx-background-color: #21252e;
+}
+
+#rootPane{
+	-fx-background-color: #21252e;
+	-fx-border-width: 0px;
+	-fx-background-radius: 0;
+}
+
+#logoutButton{
+	-fx-background-color: #21252e;
+	-fx-font-size: 14px;
+	-fx-font-weight: bold;
+	-fx-text-fill: white;
+	-fx-border-width: 0;
+}
+
+#headerClock{
+	-fx-font-size: 14px;
+	-fx-text-fill: white;		
+}
+
+.headerLabel{
+	-fx-font-size: 14px;
+	-fx-text-fill: white;		
+}
+
+.borderTop{
+	-fx-border-image-slice: 10 10 10 10 fill;  
+  	-fx-border-image-width: 5 0 0 0;  
+  	-fx-border-image-repeat: stretch ;   
+	-fx-border-image-source: url("/rs/petcom/master/img/border.png");
+	-fx-border-width: 1px; 	
+}
+.borderLeft{
+	-fx-border-image-slice: 10 10 10 10 fill;  
+  	-fx-border-image-width: 0 0 0 5;  
+  	-fx-border-image-repeat: stretch ;   
+	-fx-border-image-source: url("/rs/petcom/master/img/border.png");
+	-fx-border-width: 1px; 	
+}
+.borderRight{
+	-fx-border-image-slice: 10 10 10 10 fill;  
+  	-fx-border-image-width: 0 5 0 0;  
+  	-fx-border-image-repeat: stretch ;   
+	-fx-border-image-source: url("/rs/petcom/master/img/border.png");
+	-fx-border-width: 1px; 	
+}
+.borderLeftRight{
+	-fx-border-image-slice: 10 10 10 10 fill;  
+  	-fx-border-image-width: 0 5 0 5;  
+  	-fx-border-image-repeat: stretch ;   
+	-fx-border-image-source: url("/rs/petcom/master/img/border.png");
+	-fx-border-width: 1px; 	
+}
+.borderBottom{
+	-fx-border-image-slice: 10 10 10 10 fill;  
+  	-fx-border-image-width: 0 0 5 0;  
+  	-fx-border-image-repeat: stretch ;   
+	-fx-border-image-source: url("/rs/petcom/master/img/border.png");
+	-fx-border-width: 1px; 	
+}
+.borderTopBottom{
+	-fx-border-image-slice: 10 10 10 10 fill;  
+  	-fx-border-image-width: 5 0 5 0;  
+  	-fx-border-image-repeat: stretch ;   
+	-fx-border-image-source: url("/rs/petcom/master/img/border.png");
+	-fx-border-width: 1px; 	
+}
+.borderTopLeft{
+	-fx-border-image-slice: 10 10 10 10 fill;  
+  	-fx-border-image-width: 5 0 0 5;  
+  	-fx-border-image-repeat: stretch ;   
+	-fx-border-image-source: url("/rs/petcom/master/img/border.png");
+	-fx-border-width: 1px; 	
+}
+.borderTopBottomLeft{
+	-fx-border-image-slice: 10 10 10 10 fill;  
+  	-fx-border-image-width: 5 0 5 5;  
+  	-fx-border-image-repeat: stretch ;   
+	-fx-border-image-source: url("/rs/petcom/master/img/border.png");
+	-fx-border-width: 1px; 	
+}
+.borderTopBottomLeftRight{
+	-fx-border-image-slice: 10 10 10 10 fill;  
+  	-fx-border-image-width: 5 5 5 5;  
+  	-fx-border-image-repeat: stretch ;   
+	-fx-border-image-source: url("/rs/petcom/master/img/border.png");
+	-fx-border-width: 1px; 	
+}
+.borderBottomLeft{
+	-fx-border-image-slice: 10 10 10 10 fill;  
+  	-fx-border-image-width: 0 0 5 5;  
+  	-fx-border-image-repeat: stretch ;   
+	-fx-border-image-source: url("/rs/petcom/master/img/border.png");
+	-fx-border-width: 1px; 	
+}
+.actionButton{
+	-fx-background-color: #21252e;
+	-fx-font-size: 14px;
+	-fx-text-fill: white;
+	-fx-text-alignment: center;
+	
+	-fx-background-radius: 0px;
+}
+.actionButton:selected{
+	-fx-background-color: #21252e;
+	-fx-font-size: 14px;
+	-fx-text-fill: white;
+	-fx-text-alignment: center;
+	
+	-fx-background-radius: 0px;
+	-fx-border-image-slice: 10 10 10 10 fill;  
+  	-fx-border-image-width: 5 0 5 5;  
+  	-fx-border-image-repeat: stretch ;   
+	-fx-border-image-source: url("/rs/petcom/master/img/s-border.png");
+	-fx-border-width: 1px; 
+}
+
+.groupButton{
+	-fx-background-color: #21252e;
+	-fx-font-size: 13px;
+	-fx-font-weight: bold;
+	-fx-text-fill: white;
+	-fx-text-alignment: center;
+	-fx-background-radius: 0px;
+}
+.groupButton:selected{
+	-fx-background-color: #21252e;
+	-fx-font-size: 13px;
+	-fx-font-weight: bold;
+	-fx-text-fill: white;
+	-fx-text-alignment: center;
+	-fx-background-radius: 0px;
+	
+	-fx-border-image-slice: 10 10 10 10 fill;  
+  	-fx-border-image-width: 5 0 5 5;  
+  	-fx-border-image-repeat: stretch ;   
+	-fx-border-image-source: url("/rs/petcom/master/img/s-border.png");
+	-fx-border-width: 1px; 	
+}
+
+.subGroupButton{
+	-fx-background-color: #21252e;
+	-fx-font-size: 12px;
+	-fx-text-fill: white;
+	-fx-text-alignment: center;
+	-fx-background-radius: 0px;
+}
+.subGroupButton:selected{
+	-fx-background-color: #21252e;
+	-fx-font-size: 12px;
+	-fx-text-fill: white;
+	-fx-text-alignment: center;
+	-fx-background-radius: 0px;
+	
+	-fx-border-image-slice: 10 10 10 10 fill;  
+  	-fx-border-image-width: 5 0 5 5;  
+  	-fx-border-image-repeat: stretch ;   
+	-fx-border-image-source: url("/rs/petcom/master/img/s-border.png");
+	-fx-border-width: 1px; 	
+}
+.productButton{
+	-fx-font-size: 12px;
+	-fx-text-alignment: center;
+	-fx-background-radius: 0px;
+}
+.additionalButton{
+	-fx-background-radius: 0px;
+}
+.descriptionalButton{
+	-fx-background-radius: 0px;
+}
+.billSummaryHeader{
+	-fx-font-size: 14px;
+	-fx-text-fill: white;
+	-fx-text-alignment: center;
+	-fx-background-radius: 0px;
+	
+}
+.billSummaryHeaderLabel{
+	/*-fx-background-color: #4f5460;*/
+	-fx-font-size: 14px;
+	-fx-font-weight: bold;
+	-fx-text-fill: white;
+	-fx-text-alignment: center;
+	-fx-background-radius: 0px;
+}
+.billSummaryRound{
+}
+.billSummaryItem{
+	-fx-background-color: transparent;
+}
+.billSummaryItemSelected{
+	-fx-background-color: orange;
+}
+.billSummaryItemLabel{
+	-fx-background-color: transparent;
+	-fx-font-size: 16px;
+	-fx-text-fill: white;
+}
+
+.backGroundTransparent{
+	-fx-background-color: transparent;	
+}
+.backGroundOrange{
+	-fx-background-color: orange;
+}
+
+.numpadButton{
+	-fx-background-color: #21252e;
+	-fx-text-fill: orange;
+	-fx-font-size: 20px;
+	-fx-font-weight: bold;
+	-fx-background-radius: 0;
+}
+
+.warningLabel{
+	-fx-background-color: orange;
+	-fx-font-size: 22px;
+	-fx-font-weight: bold;
+	-fx-text-fill: black;
+}
+.imageView{
+	-fx-background-color: orange;
+	-fx-border-color: orange;
+	-fx-border-style: solid;
+	-fx-border-width: 1px;
+}

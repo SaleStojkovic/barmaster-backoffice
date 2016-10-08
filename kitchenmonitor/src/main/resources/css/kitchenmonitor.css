@@ -1,0 +1,18 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+#rootPane{
+	-fx-background-color: #21252e;
+	-fx-border-width: 0;
+	-fx-border-style: none;
+	-fx-padding: 5px;
+}
+
+.scrollPane{
+	-fx-background-color: #21252e;
+	-fx-border-width: 0;
+	-fx-border-style: none;
+	-fx-padding: 5px;
+}
+
+.scroll-pane {
+    -fx-background-color: transparent ;
+}

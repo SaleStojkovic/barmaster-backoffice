@@ -1,0 +1,50 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+.tree-view{
+	-fx-base: gray;
+}
+
+.tree-view .scroll-bar:vertical > .increment-button{
+    -fx-arrows-visible: true;
+    -fx-size: 20px;
+}
+
+.tree-row-cell .text {
+	-fx-fill: black ;
+	-fx-font-size: 12px;
+	-fx-font-weight: normal;
+}
+
+.tree-cell{
+	-fx-text-fill: black;
+	-fx-font-size: 12px;
+	-fx-font-weight: normal;
+	-fx-indent: 10;
+}
+.tree-cell:focused {
+	-fx-text-fill: black;
+	-fx-font-size: 12px;
+	-fx-indent: 10;
+}
+.tree-cell:selected{
+	-fx-text-fill: black;
+	-fx-font-weight: normal;
+	-fx-font-size: 12px;
+	-fx-background-color: orange; 
+	-fx-indent: 10;
+}
+
+.integerColumn {
+  -fx-alignment: CENTER-RIGHT;
+}
+
+.textField{
+	-fx-font-size: 12px;
+	-fx-text-fill: black;	
+}
+
+.tree-cell .label{
+	-fx-font-size: 12px;
+	-fx-text-fill: black;	
+}
+

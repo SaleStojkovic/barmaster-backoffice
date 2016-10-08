@@ -1,0 +1,146 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+#rootPane{
+	-fx-background-color: #21252e;
+	-fx-border-color: orange;
+	-fx-border-width: 1px;
+	-fx-border-style: solid;
+	-fx-padding: 5px;
+}
+
+#title{
+	-fx-font-size: 20px;
+	-fx-text-fill: orange;
+	-fx-font-weight: bold;		
+}
+
+.label{
+	-fx-font-size: 14px;
+	-fx-text-fill: white;
+	-fx-font-weight: normal;
+}
+
+.labelValue{
+	-fx-text-fill: white;
+	-fx-font-weight: bold;
+}
+
+.button{
+	-fx-base: black;
+	-fx-border-color: orange;
+	-fx-font-size: 14px;
+	-fx-text-fill: white;
+	-fx-font-weight: normal;
+}
+
+.titled-pane  {
+	-fx-base: #21252e; 
+    -fx-alignment: center;
+    -fx-font-size: 16px;   
+    -fx-font-weight: bold;       
+}
+.titled-pane:expanded  > .title{
+    -fx-base: orange;  
+    -fx-text-fill: black;    
+    -fx-border-width: 0px;
+}
+
+.check-box{
+  	-fx-font-size: 14px;
+	-fx-text-fill: white;
+	-fx-font-weight: normal;
+}
+
+.text-field{
+	-fx-background-color: transparent;
+	-fx-border-color: orange;
+	-fx-border-width: 1px;
+	-fx-border-style: solid;
+	-fx-border-radius: 3px;
+	-fx-text-fill: white;
+	-fx-font-size: 14px;
+}
+
+
+.text-area{
+	-fx-background-color: #21252e;
+	-fx-border-style: none;
+	-fx-text-fill: white;
+	-fx-font-size: 14px;
+}
+
+.text-area .viewport{
+	-fx-background-color: #21252e;
+	-fx-border-color: orange;
+	-fx-border-style: none;
+	-fx-text-fill: white;
+	-fx-font-size: 14px;
+}
+.text-area .content {
+	-fx-background-color: #21252e;
+	-fx-border-color: orange;
+	-fx-border-width: 1px;
+	-fx-border-style: solid;
+	-fx-border-radius: 3px;
+	-fx-text-fill: white;
+	-fx-font-size: 14px;
+}
+
+.combo-box{
+	-fx-background-color: #21252e;
+	-fx-border-color: orange;
+	-fx-border-width: 1px;
+	-fx-border-style: solid;
+	-fx-border-radius: 3px;
+	-fx-text-fill: white;
+	-fx-font-size: 14px;
+}
+
+.combo-box .list-cell {
+    -fx-background-color: #21252e;
+    -fx-text-fill: white;
+    -fx-font-size: 14px; 
+    -fx-padding: 0 10px 0 10px;
+}
+
+.combo-box-popup .list-view{
+	-fx-background-color: #21252e;
+    -fx-border-color: orange;
+	-fx-border-width: 1px;
+	-fx-border-style: solid;
+	-fx-border-radius: 3px;
+}
+
+.split-pane {
+    -fx-background-color: #21252e;
+    -fx-background-insets: 0;
+}
+
+.date-picker{
+    -fx-background-color: #21252e;
+}
+.date-picker > .arrow-button{
+    -fx-background-color: #21252e;
+	-fx-border-color: orange;
+	-fx-border-width: 1px;
+	-fx-border-style: solid;
+	-fx-border-radius: 3px;
+}
+
+.date-picker-popup { 
+	-fx-border-color: orange;
+	-fx-border-width: 1px;
+	-fx-border-style: solid;
+}
+.date-picker-popup > .month-year-pane > .button{
+    -fx-border-style: none;
+}
+.date-picker-popup > .month-year-pane {
+    -fx-background-color: #21252e;
+}
+
+.date-picker-popup > * > .spinner > .button {
+    -fx-background-color: orange;
+    -fx-border-width: 0;
+	-fx-border-style: none;
+}
